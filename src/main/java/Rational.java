@@ -26,7 +26,7 @@ public class Rational
         int newDenominator = r.denominator*s.denominator; 
         
         Rational x = new Rational(newNumerator, newDenominator);
-        return x;
+        return simplify(x);
     }
 
     // Finds the greatest common factor between a and b
@@ -50,28 +50,51 @@ public class Rational
     //      simplify(1/2) => 1/2
     public static Rational simplify(Rational r)
     {
-        // REPLACE WITH YOUR CODE HERE
-        return null;
+        int factor = greatestCommonFactor(r.numerator, r.denominator);
+        int numerator2 = r.numerator / factor;
+        int denominator2 = r.denominator / factor;
+
+        Rational x = new Rational(numerator2, denominator2);
+
+        return x;
     }
 
     // This method takes two Rationals, subtracts thems up, 
     // and returns a Rational equal to the difference
     public static Rational subtract(Rational r, Rational s)
     {
-        // REPLACE WITH YOUR CODE HERE
-        return null;
+        int numeratorrnew = r.numerator * s.denominator - s.numerator * r.denominator;
+        int newDenominator2 = r.denominator * s.denominator;
+
+        Rational x = new Rational(numeratorrnew, newDenominator2);
+
+        return simplify(x);
     }
     
     public static Rational multiply(Rational r, Rational s)
     {
-        // REPLACE WITH YOUR CODE HERE
-        return null;
+        int n = r.numerator * s.numerator;
+        int d = r.denominator * s.denominator;
+
+        Rational x = new Rational(n, d);
+
+        return simplify(x);
     }
     
     public static Rational divide(Rational r, Rational s)
     {
-        // REPLACE WITH YOUR CODE HERE
-        return null;
+        Rational g = new Rational(s.denominator, s.numerator);
+
+        int n = r.numerator * g.numerator;
+        int d = r.denominator * g.denominator;
+
+        
+
+        Rational x = new Rational(n, d);
+
+        
+
+        return simplify(x);
     }
 
 
